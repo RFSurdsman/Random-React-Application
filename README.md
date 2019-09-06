@@ -4,6 +4,8 @@ A random react application playing around with:
  - Function Components
  - React Router
  - Hooks
+ - Context API
+ - Redux
  - API calls to servers using Axios
  - Error Handling
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { TextContext } from "./ContextAPI";
 import './App.css';
 
 interface IProps {
@@ -9,6 +10,11 @@ interface IProps {
 
 const ItemList: React.FC<IProps> = ({ addItem, placeholder, items }) => {
   const [username, setUsername] = React.useState('');
+  const [string] = React.useContext(TextContext);
+
+  React.useEffect(() => {
+    console.log("Rendering ItemList.");
+  });
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -35,12 +41,15 @@ const ItemList: React.FC<IProps> = ({ addItem, placeholder, items }) => {
     marginLeft: 'auto',
     marginRight: 'auto',
     width: '50%'
-  }}>{itemsRender}</table>;
+  }}>
+    <tbody>{itemsRender}</tbody>
+  </table>;
 
   return (
     <div>
       <form onSubmit={submitHandler}>
         <h1>Hello {username}</h1>
+        <h3>{string}</h3>
         <p>Enter your name, and submit:</p>
         <input
           value={username}
